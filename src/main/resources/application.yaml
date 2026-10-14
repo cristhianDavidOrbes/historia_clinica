@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: historias_clinicas
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/historias_}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:1234}
+  sql:
+    init:
+      mode: always
+
+server:
+  address: 127.0.0.1
