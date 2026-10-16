@@ -24,3 +24,18 @@ CREATE TABLE IF NOT EXISTS accesos_emergencia (
     revisada_en TIMESTAMPTZ,
     revision VARCHAR(2000)
 );
+
+CREATE TABLE IF NOT EXISTS auditoria_eventos (
+    event_id UUID PRIMARY KEY,
+    usuario VARCHAR(80) NOT NULL,
+    rol VARCHAR(50) NOT NULL,
+    paciente_id BIGINT,
+    accion VARCHAR(100) NOT NULL,
+    resultado VARCHAR(30) NOT NULL,
+    punto_acceso VARCHAR(100) NOT NULL,
+    modo VARCHAR(30) NOT NULL,
+    registrado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_auditoria_registrado_en ON auditoria_eventos (registrado_en);
+CREATE INDEX IF NOT EXISTS idx_auditoria_paciente ON auditoria_eventos (paciente_id);
