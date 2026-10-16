@@ -1,6 +1,6 @@
 package com.medfan.historias_clinicas.auditoria;
 
-// Contrato de integracion usado por historias. Su implementacion corresponde al companero de auditoria.
+// Contrato de integracion usado por los demas modulos.
 public interface AuditoriaApi {
     void registrar(String usuario, String rol, Long pacienteId, String accion,
                    String resultado, String puntoAcceso, String modo);
